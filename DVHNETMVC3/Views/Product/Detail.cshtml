@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model DVHNETMVC3.Models.Product
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<div class="container mt-4">
+    <h2>Chi tiết sản phẩm</h2>
+    <div class="row mt-3">
+        <div class="col-md-5">
+            <img src="@Model.Image" class="img-fluid border" alt="@Model.Name" />
+        </div>
+        <div class="col-md-7">
+            <h4>Sản phẩm: @Model.Name</h4>
+            <p class="fs-5">
+                Giá gốc: <del>@Model.Price</del> Giá mới: <strong class="text-danger">@Model.SalePrice</strong>
+            </p>
+            <h5>Mô Tả:</h5>
+            <p>@Model.Description</p>
+            <p>
+                <strong>Trạng thái:</strong>
+                @(Model.Status ? "Còn hàng" : "Hết hàng")
+            </p>
+            <p>
+                <strong>Ngày đăng:</strong> @Model.CreatedAt.ToString("dd/MM/yyyy hh:mm:ss tt")
+            </p>
+
+            <a href="/san-pham" class="btn btn-danger mt-3">Về danh sách</a>
+        </div>
+    </div>
+</div>
